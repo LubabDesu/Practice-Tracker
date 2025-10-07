@@ -9,17 +9,21 @@ from .auth import router
 from starlette.middleware.sessions import SessionMiddleware
 from .db import init_db
 from .routes import pieces, sessions, me, stats
+from fastapi.middleware.cors import CORSMiddleware
 
 load_dotenv()
 
 GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
-print("Google client id is : ", GOOGLE_CLIENT_ID)
 GOOGLE_CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")
 SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret")
 
 
 app = FastAPI()
-app.add_middleware(SessionMiddleware, secret_key=SECRET_KEY)
+app.add_middleware(CORSMiddleware, 
+                    allow_origins=[os.getenv("FRONTEND_ORIGIN", "http://localhost:5173")],
+                    allow_credentials=True,
+                    allow_methods=["*"],
+                    allow_headers=["*"],)
 app.include_router(router)
 
 api_router = APIRouter(prefix="/api", tags=["auth"])
