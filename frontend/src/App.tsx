@@ -14,6 +14,8 @@ import {
 } from "./ui";
 import "./App.css";
 
+const BASE = import.meta.env.VITE_API_BASE_URL || "";
+
 type Me = {
     email: string;
     display_name?: string | null;
@@ -112,7 +114,7 @@ export default function App() {
                                     {" "}
                                     Join today.
                                 </p>
-                                <a href="/login">
+                                <a href={`${BASE}/login?next=/`}>
                                     <Button>Login with Google</Button>
                                 </a>
                             </section>

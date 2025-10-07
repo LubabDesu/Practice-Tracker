@@ -19,6 +19,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret")
 
 
 app = FastAPI()
+app.add_middleware(SessionMiddleware, secret_key=SECRET_KEY)
 app.add_middleware(CORSMiddleware, 
                     allow_origins=[os.getenv("FRONTEND_ORIGIN", "http://localhost:5173")],
                     allow_credentials=True,

@@ -1,8 +1,8 @@
 // src/ui.tsx
 import React from "react";
-import { api } from "./api";
 
 // ui.tsx
+const BASE = import.meta.env.VITE_API_BASE_URL || "";
 export const Page: React.FC<{ children: React.ReactNode }> = ({ children }) => (
     <div
         style={{
@@ -122,7 +122,7 @@ export const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement>> = (
 export const LogOutButton = () => (
     <button
         onClick={() => {
-            window.location.href = "http://localhost:8000/logout";
+            window.location.href = `${BASE}/logout`;
         }}
         style={{
             background: "#333",

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { api } from "../api";
 
 type Stats = {
     total_minutes_last_7_days: number;
