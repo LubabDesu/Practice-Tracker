@@ -28,10 +28,14 @@ BASE_URL_BACKEND = "https://practice-tracker.onrender.com"
 BASE_URL_FRONTEND = os.getenv("FRONTEND_BASE_URL","http://localhost:5173")
 FRONTEND_ORIGIN = os.getenv("FRONTEND_ORIGIN", "http://localhost:5173")
 
+#Debugging : 
+print("SECRET_KEY (first6):", os.getenv("SECRET_KEY")[:6])
+print("CLIENT_ID exists:", bool(os.getenv("GOOGLE_CLIENT_ID")))
+print("BACKEND_BASE_URL:", os.getenv("BACKEND_BASE_URL"))
+
 def frontend_url(path: str = "/") -> str:
     # ensure single slash join
     return FRONTEND_ORIGIN.rstrip("/") + "/" + path.lstrip("/")
-
 # Register Google OAuth (OpenID Connect)
 oauth.register(
     name="google",
