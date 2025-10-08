@@ -115,7 +115,7 @@ export default function App() {
                                     {" "}
                                     Join today.
                                 </p>
-                                <a href={`${BASE}/login?next=/`}>
+                                <a href={`${BASE}/login`}>
                                     <Button>Login with Google</Button>
                                 </a>
                             </section>
