@@ -34,6 +34,7 @@ export default function App() {
     const [composer, setComposer] = useState("");
     const [status, setStatus] = useState("");
     const [refreshTick, setRefreshTick] = useState(0);
+    console.log(BASE);
 
     function bumpRefresh() {
         load();

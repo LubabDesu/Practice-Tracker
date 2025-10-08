@@ -16,15 +16,22 @@ load_dotenv()
 GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
 GOOGLE_CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")
 SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret")
+frontend = os.getenv("FRONTEND_ORIGIN", "http://localhost:5173")
+
+
 
 
 app = FastAPI()
 app.add_middleware(SessionMiddleware, secret_key=SECRET_KEY)
-app.add_middleware(CORSMiddleware, 
-                    allow_origins=[os.getenv("FRONTEND_ORIGIN", "http://localhost:5173")],
-                    allow_credentials=True,
-                    allow_methods=["*"],
-                    allow_headers=["*"],)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[frontend],
+    # If you also want to allow Vercel preview URLs:
+    allow_origin_regex=r"https://.*\.vercel\.app$",
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 app.include_router(router)
 
 api_router = APIRouter(prefix="/api", tags=["auth"])

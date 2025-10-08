@@ -23,7 +23,8 @@ GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
 GOOGLE_CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")
 SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret")
 COOKIE_NAME = os.getenv("COOKIE_NAME", "pt_session")
-BASE_URL_BACKEND = os.getenv("BACKEND_BASE_URL", "http://localhost:8000")
+# BASE_URL_BACKEND = os.getenv("BACKEND_BASE_URL", "http://localhost:8000")
+BASE_URL_BACKEND = https://practice-tracker.onrender.com
 BASE_URL_FRONTEND = os.getenv("FRONTEND_BASE_URL","http://localhost:5173")
 FRONTEND_ORIGIN = os.getenv("FRONTEND_ORIGIN", "http://localhost:5173")
 
@@ -82,9 +83,9 @@ async def auth_callback(request: Request, db: DBSession = Depends(get_db)):
         key=COOKIE_NAME,
         value=session_jwt,
         httponly=True,
-        secure=False,  # set True in production with HTTPS
-        samesite="lax",
-        max_age=60 * 60 * 4,
+        secure=True,          # prod over HTTPS
+        samesite="none",      # needed for cross-site fetch
+        max_age=60*60*4,
         path="/",
     )
     
