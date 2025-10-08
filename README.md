@@ -1,11 +1,11 @@
-🎹 Piano Practice Tracker (MVP)
+# **🎹 Piano Practice Tracker (MVP)**
 
 A minimal full-stack web app that lets users log piano practice sessions and track progress over time.
-Built with FastAPI + PostgreSQL (backend) and React + Vite (frontend).
+Built with **FastAPI + PostgreSQL** (backend) and **React + Vite** (frontend).
 
 ⸻
 
-🚀 Live Demo
+## 🚀 Live Demo
 
 🌐 Frontend: https://practice-tracker-rho.vercel.app
 🧠 Backend API: https://practice-tracker.onrender.com
@@ -14,7 +14,7 @@ Built with FastAPI + PostgreSQL (backend) and React + Vite (frontend).
 
 ⸻
 
-✨ Core Features (MVP)
+## ✨ Core Features (MVP)
 
 ✅ Google OAuth Login — secure login with Google via FastAPI + Authlib
 ✅ Database Integration — PostgreSQL + SQLModel for persistent user, piece, and session data
@@ -26,7 +26,7 @@ Built with FastAPI + PostgreSQL (backend) and React + Vite (frontend).
 
 ⸻
 
-🛠️ Tech Stack
+## 🛠️ Tech Stack
 
 Frontend:
 	•	React + Vite
@@ -49,7 +49,7 @@ Deployment:
 
 ⸻
 
-🧩 Current API Endpoints
+## 🧩 Current API Endpoints
 
 🔐 Authentication
 	•	GET /login — Redirects user to Google OAuth consent screen
@@ -78,7 +78,7 @@ Deployment:
 
 ⸻
 
-💡 Future Features (Planned)
+## 💡 Future Features (Planned)
 
 🪄 Auto-refresh on Add — update dropdowns and stats immediately after adding a piece/session
 📊 Piece Summary Dashboard — total minutes practiced per piece
@@ -91,7 +91,7 @@ Deployment:
 
 ⸻
 
-🧭 Local Development 
+## 🧭 Local Development 
 # 1️⃣ Backend setup
 cd backend
 python3 -m venv .venv && source .venv/bin/activate
@@ -99,7 +99,7 @@ pip install -r requirements.txt
 cp .env.example .env  # fill in GOOGLE_CLIENT_ID, SECRET_KEY, etc.
 uvicorn app.main:app --reload
 
-# 2️⃣ Frontend setup
+## 2️⃣ Frontend setup
 cd frontend
 npm install
 npm run dev
