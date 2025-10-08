@@ -24,7 +24,7 @@ GOOGLE_CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")
 SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret")
 COOKIE_NAME = os.getenv("COOKIE_NAME", "pt_session")
 # BASE_URL_BACKEND = os.getenv("BACKEND_BASE_URL", "http://localhost:8000")
-BASE_URL_BACKEND = https://practice-tracker.onrender.com
+BASE_URL_BACKEND = "https://practice-tracker.onrender.com"
 BASE_URL_FRONTEND = os.getenv("FRONTEND_BASE_URL","http://localhost:5173")
 FRONTEND_ORIGIN = os.getenv("FRONTEND_ORIGIN", "http://localhost:5173")
 
